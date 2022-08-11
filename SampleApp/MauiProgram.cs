@@ -39,34 +39,22 @@ public static class MauiProgram
                    
                     if(winuiAppWindow.Presenter is OverlappedPresenter p)
                        { p.Maximize();
-                       p.IsAlwaysOnTop=true;
+                       //p.IsAlwaysOnTop=true;
                        p.IsResizable=false;
                        p.IsMaximizable = false;
                        p.IsMinimizable=false;
-
- 
-
-                       }
-                        
+                       }                     
                     else
                     {
                         const int width = 1200;
                         const int height = 800;
-                        winuiAppWindow.MoveAndResize(new RectInt32(1920 / 2 - width / 2, 1080 / 2 - height / 2, width, height));
-                       
-                        }
-                        
-                }).OnClosed((window,args)=>HandleClose);
+                        winuiAppWindow.MoveAndResize(new RectInt32(1920 / 2 - width / 2, 1080 / 2 - height / 2, width, height));                      
+                        }                        
+                });
             });
         });
-#endif
-        
+#endif     
         return builder.Build();
-    }
-
-    private static void HandleClose()
-    {
-
     }
 
 

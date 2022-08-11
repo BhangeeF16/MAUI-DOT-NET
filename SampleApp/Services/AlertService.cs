@@ -23,9 +23,19 @@ namespace SampleApp.Services
     {
         // ----- async calls (use with "await" - MUST BE ON DISPATCHER THREAD) -----
 
+        
         public Task ShowAlertAsync(string title, string message, string cancel = "OK")
         {
-            return Application.Current.MainPage.DisplayAlert(title, message, cancel);
+            try
+            {
+                return Application.Current.MainPage.DisplayAlert(title, message, cancel);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         public Task<bool> ShowConfirmationAsync(string title, string message, string accept = "Yes", string cancel = "No")
@@ -39,9 +49,18 @@ namespace SampleApp.Services
         /// </summary>
         public void ShowAlert(string title, string message, string cancel = "OK")
         {
-            Application.Current.MainPage.Dispatcher.Dispatch(async () =>
-                await ShowAlertAsync(title, message, cancel)
-            );
+            try
+            {
+                Application.Current.MainPage.Dispatcher.Dispatch(async () =>
+
+await ShowAlertAsync(title, message, cancel)
+);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
 
         /// <summary>
