@@ -3,6 +3,7 @@ using CommunityToolkit.Maui;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Compatibility;
 using Microsoft.Maui.Controls.Xaml;
+using SampleApp.Services;
 #if WINDOWS
 using Microsoft.UI;
 using Microsoft.UI.Windowing;
@@ -21,7 +22,7 @@ public static class MauiProgram
         }).UseMauiCommunityToolkit();
 
 
-
+        builder.AddServices();
 
 #if WINDOWS
         builder.ConfigureLifecycleEvents(events =>

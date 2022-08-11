@@ -1,15 +1,21 @@
-﻿namespace SampleApp;
+﻿using SampleApp.Services;
+
+namespace SampleApp;
 
 public partial class App : Application
 {
-	public App()
+	public static IServiceProvider Services;
+    public static IAlertService AlertService;
+
+    public App(IServiceProvider serviceProvider)
 	{
 		InitializeComponent();
 	    
-		MainPage = new AppShell();
 
+		Services = serviceProvider;
+		AlertService=Services.GetService<IAlertService>();
+        MainPage = new AppShell();
 
-
-	}
+    }
 
 }
