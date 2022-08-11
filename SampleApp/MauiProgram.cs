@@ -20,10 +20,7 @@ public static class MauiProgram
         {
             fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
         }).UseMauiCommunityToolkit();
-
-
         builder.AddServices();
-
 #if WINDOWS
         builder.ConfigureLifecycleEvents(events =>
         {
@@ -46,8 +43,8 @@ public static class MauiProgram
                        }                     
                     else
                     {
-                        const int width = 1200;
-                        const int height = 800;
+                        const int width = 1920;
+                        const int height = 1080;
                         winuiAppWindow.MoveAndResize(new RectInt32(1920 / 2 - width / 2, 1080 / 2 - height / 2, width, height));                      
                         }                        
                 });
@@ -56,8 +53,4 @@ public static class MauiProgram
 #endif     
         return builder.Build();
     }
-
-
-
-
 }
